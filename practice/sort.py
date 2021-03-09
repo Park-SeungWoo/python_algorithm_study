@@ -115,7 +115,7 @@ def compareSortTime(a):
 
 if __name__ == '__main__':
     data = []  # to save random numeric data list from 1 to 5000
-    for i in range(5000):  # append 5000 random numeric datas (accept redundancy)
+    for i in range(1000):  # append 5000 random numeric datas (accept redundancy)
         data.append(random.randrange(1, 5001))
 
     testd = [2, 1, 3, 6, 7, 9, 4, 5, 8, 10]
@@ -125,5 +125,5 @@ if __name__ == '__main__':
     # a = testd  # use short test data
     # a = testrd  # use short test data (with redundancy)
 
-    # chooseSortType(a, 'q')  # can see sorting process
-    compareSortTime(a)  # can compare delay among sorting algorithms
+    chooseSortType(a, 'i')  # can see sorting process
+    # compareSortTime(a)  # can compare delay among sorting algorithms
