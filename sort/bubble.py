@@ -1,18 +1,19 @@
 # bubble sort
 
-def bubbleSort(arr):
+
+def bubbleSort(data):
     count = 0
-    for i in arr:
-        for jdx, j in enumerate(arr):
-            if jdx < len(arr) - 1:
-                if arr[jdx] > arr[jdx + 1]:
-                    arr[jdx], arr[jdx + 1] = arr[jdx + 1], arr[jdx]
-                    count += 1
-                    print(count, arr)
+    for idx, item in enumerate(data):  # sweep N times
+        for jdx, jtem in enumerate(data):  # sweep
+            if jdx < len(data) - 1 - idx and jtem > data[jdx + 1]:  # add the preceding condition to prevent access to sorted data
+                data[jdx], data[jdx + 1] = data[jdx + 1], data[jdx]
+                count += 1
+                print(f"{f'step{count}': <10}{arr}")
 
 
 arr = [2, 10, 5, 8, 7, 6, 4, 3, 1, 9]
+a = [3, 1, 6, 2, 7, 9, 4, 5, 8, 10]
 
-print(arr)
-bubbleSort(arr)
-print(arr)
+print(f"{'before':=^40}\n{a}")
+bubbleSort(a)
+print(f"{'after':=^40}\n{a}")
