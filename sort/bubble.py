@@ -8,7 +8,7 @@ def bubbleSort(data):
             if jdx < len(data) - 1 - idx and jtem > data[jdx + 1]:  # add the preceding condition to prevent access to sorted data
                 data[jdx], data[jdx + 1] = data[jdx + 1], data[jdx]
                 count += 1
-                print(f"{f'step{count}': <10}{arr}")
+                print(f"{f'step{count}': <10}{data}")
 
 
 arr = [2, 10, 5, 8, 7, 6, 4, 3, 1, 9]

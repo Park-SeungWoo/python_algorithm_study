@@ -31,12 +31,11 @@ class Sort:
     @staticmethod
     def insertionSort(data, t):
         print('insertion sort')
-        for idx, item in enumerate(data):
-            midx = idx
-            # set index in range of 0 ~ len(data) - 2 to prevent index out of range exception
-            while len(data) - 1 > midx >= 0 and data[midx] > data[midx + 1]:
-                data[midx], data[midx + 1] = data[midx + 1], data[midx]
-                midx -= 1
+        for idx, _ in enumerate(data):
+            fidx = idx
+            while fidx > 0 and data[fidx] > data[fidx - 1]:
+                data[fidx], data[fidx - 1] = data[fidx - 1], data[fidx]
+                fidx -= 1
                 if t:
                     print(data)
 
@@ -125,5 +124,5 @@ if __name__ == '__main__':
     # a = testd  # use short test data
     # a = testrd  # use short test data (with redundancy)
 
-    chooseSortType(a, 'i')  # can see sorting process
-    # compareSortTime(a)  # can compare delay among sorting algorithms
+    # chooseSortType(a, 'i')  # can see sorting process
+    compareSortTime(a)  # can compare delay among sorting algorithms
