@@ -33,11 +33,11 @@ class Sort:
         print('insertion sort')
         for idx, _ in enumerate(data):
             fidx = idx
-            while fidx > 0 and data[fidx] > data[fidx - 1]:
+            while fidx > 0 and data[fidx] < data[fidx - 1]:
                 data[fidx], data[fidx - 1] = data[fidx - 1], data[fidx]
                 fidx -= 1
-                if t:
-                    print(data)
+            if t:
+                print(data)
 
     @classmethod  # class method -> it can access any methods or variables in this class using cls
     def quickSort(cls, data, t):
@@ -114,15 +114,17 @@ def compareSortTime(a):
 
 if __name__ == '__main__':
     data = []  # to save random numeric data list from 1 to 5000
-    for i in range(1000):  # append 5000 random numeric datas (accept redundancy)
+    for i in range(5000):  # append 5000 random numeric datas (accept redundancy)
         data.append(random.randrange(1, 5001))
 
     testd = [2, 1, 3, 6, 7, 9, 4, 5, 8, 10]
     testrd = [3, 1, 6, 2, 2, 3, 7, 9, 4, 5, 8, 10]  # easy-to-see test data
+    alsorted = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-    a = data  # use 100 random data
+    # a = data  # use 100 random data
     # a = testd  # use short test data
     # a = testrd  # use short test data (with redundancy)
+    a = alsorted  # test with already sorted data
 
-    # chooseSortType(a, 'i')  # can see sorting process
+    # chooseSortType(a, 'q')  # can see sorting process
     compareSortTime(a)  # can compare delay among sorting algorithms
