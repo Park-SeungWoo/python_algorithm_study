@@ -28,17 +28,17 @@ def merge(data, start, end):
             temp.append(data[right])
             right += 1
 
-    # save remaining datas after do preceding process
+    # append remaining datas after do preceding process
     # <example>
     # [3] [1] [(temp)] (left == 0, right == 1, mid == 0)
     # [3] [] [1] (left == 0, right == 2, mid == 0)
     # process end
     # 3 is remaining element so, we have to append it.
     if left <= mid:
-        for i in data[left:mid + 1]:
+        for i in data[left:mid + 1]:  # add remaining left ~ mid data
             temp.append(i)
     else:
-        for i in data[right:end + 1]:
+        for i in data[right:end + 1]:  # add remaining right ~ end data
             temp.append(i)
 
     # print(f"{f'{temp}': <50}// start : {start}, end : {end}, left : {left}, right : {right}")
