@@ -1,3 +1,4 @@
 # Blog
 
->> https://deepblancs-it-study.tistory.com/category/Algorithm
+> Algorithm
+> https://deepblancs-it-study.tistory.com/category/Algorithm
