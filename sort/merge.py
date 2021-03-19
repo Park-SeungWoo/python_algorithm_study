@@ -10,18 +10,17 @@ def mergeSort(data, start, end):
     mid = (start + end) // 2
     mergeSort(data, start, mid)  # from start to middle
     mergeSort(data, mid + 1, end)  # from middle to end
-    merge(data, start, end)
+    merge(data, start, mid, end)
 
 
-def merge(data, start, end):
+def merge(data, start, mid, end):
     # left : start to mid
     # right : mid + 1 to end
-    # index : to save sorted data
+    # index : to apply sorted data
     temp = []  # to save temporarily sorted data list
-    mid = (start + end) // 2
     left, right, index = start, mid + 1, start
     while left <= mid and right <= end:
-        if data[left] < data[right]:
+        if data[left] > data[right]:
             temp.append(data[left])
             left += 1
         else:
@@ -41,15 +40,17 @@ def merge(data, start, end):
         for i in data[right:end + 1]:  # add remaining right ~ end data
             temp.append(i)
 
-    # print(f"{f'{temp}': <50}// start : {start}, end : {end}, left : {left}, right : {right}")
+    # sorting log
+    print(f"{f'{temp}': <50}// start : {start}, end : {end}, left : {left}, right : {right}")
 
+    # apply in original dataset
     for item in temp:
         data[index] = item
         index += 1
 
 
 # usage
-dataset = [3, 1, 6, 2, 7, 9, 4, 5, 8, 10]
+dataset = [7, 6, 1, 3, 2, 9, 4, 5, 8, 10]
 rdataset = []
 for _ in range(1000):
     rdataset.append(random.randrange(1000))

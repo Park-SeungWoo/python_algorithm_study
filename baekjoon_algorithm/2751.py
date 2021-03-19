@@ -24,6 +24,41 @@ def quickSort(data, start, end):
     quickSort(data, right + 1, end)
 
 
+def mergeSort(data, start, end):
+    if end - start == 0:
+        return
+
+    mid = (start + end) // 2
+    mergeSort(data, start, mid)
+    mergeSort(data, mid + 1, end)
+    merge(data, start, mid, end)
+
+
+def merge(data, start, mid, end):
+    left = start
+    right = mid + 1
+    index = start
+    temp = []
+    while left <= mid and right <= end:
+        if data[left] > data[right]:
+            temp.append(data[right])
+            right += 1
+        else:
+            temp.append(data[left])
+            left += 1
+
+    if left > mid:
+        for item in data[right: end + 1]:
+            temp.append(item)
+    else:
+        for item in data[left: mid + 1]:
+            temp.append(item)
+
+    for item in temp:
+        data[index] = item
+        index += 1
+
+
 # try:
 #     amount = int(input())
 #     if not 1 <= amount <= 1000000:
@@ -39,20 +74,25 @@ def quickSort(data, start, end):
 #         else:
 #             raise Exception()
 #
-#     quickSort(data, 0, amount - 1)
+#     mergeSort(data, 0, amount - 1)
 #     for i in data:
 #         print(i)
 # except Exception:
 #     print('close process')
 
 
-d = []
+qd = []
 for i in range(1000000):
-    d.append(random.randrange(-1000000, 1000000))
+    qd.append(random.randrange(-1000000, 1000000))
 
-s = time.time()
-print(s)
-quickSort(d, 0, 999999)
-# d.sort()
-e = time.time() - s
-print(e)
+md = qd.copy()
+
+qs = time.time()
+quickSort(qd, 0, len(qd) - 1)
+qe = time.time() - qs
+
+ms = time.time()
+mergeSort(md, 0, len(md) - 1)
+me = time.time() - ms
+
+print(f"quick : {qe}\nmerge : {me}")
