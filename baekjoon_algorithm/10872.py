@@ -5,10 +5,5 @@ def factorial(i):
         return 1
 
 
-try:
-    n = int(input())
-    if not 0 <= n <= 12:
-        raise Exception()
-    print(factorial(n))
-except Exception:
-    print('err')
+n = int(input())
+print(factorial(n))
